@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+# By pablob, orinally by benmiller314.
+
 # Simple marc2csv script.
 
 import csv
@@ -7,9 +11,11 @@ signal(SIGPIPE, SIG_DFL)
 
 from pymarc import MARCReader
 
-filepath = 'data.mrc'
 if len(sys.argv) > 1:
     filepath = sys.argv[1]
+else:
+    print("Usage: python ./marc2csv MARC_FILE")
+    exit()
 
 try:
     reader = MARCReader(open(filepath, 'rb'), to_unicode=True)
