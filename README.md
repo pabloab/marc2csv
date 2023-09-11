@@ -1,21 +1,23 @@
-marc2csv
-========
+### marc2csv
 
 marc2csv - command-line tool to convert a MARC file to an Excel-ready CSV file.
 
-Overview
---------
+Forked from [benmiller314 version](https://github.com/benmiller314/marc2csv).
+
+## Overview
 
 This is a very simple command-line tool built for Unix-like (POSIX) systems.
 Potentially runs on Windows, but is only tested on GNU/Linux.
-Requires Python and pymarc.
+Requires Python3 and [pymarc](https://pypi.org/project/pymarc/).
 
-http://pypi.python.org/pypi/pymarc
+Install pymarc with
+
+    pip install pymarc
+
 
 A batch script for GNU bash is also included.
 
-Usage
------
+## Usage
 
     python marc2csv.py path/to/data.mrc
 
@@ -31,8 +33,7 @@ i.e.
     cat data1.mrc data2.mrc data3.mrc > data.mrc
     python marc2csv.py data.mrc > data.csv
 
-Output CSV
-----------
+## Output CSV
 
 The output CSV is a spreadsheet which has a column for each MARC tag found in
 the input data.  If a marc record does not have the tag, the corresponding cell
@@ -42,21 +43,3 @@ the columns will not likely line up in the output CSV files.)  You can open
 this CSV with OpenOffice or Microsoft Excel.
 
 For more on MARC, see http://www.oclc.org/bibformats/en/default.shtm
-
-It doesn't do X
----------------
-
-It's supposed to be simple.  I wrote, tested, and delivered it in under half an
-hour.
-
-Why?
-----
-
-Because a librarian asked for it.
-
-License & Copyright
--------------------
-
-Freely available under the GNU General Public License (GPL) v3.  See COPYING.
-
-Copyright (C) 2010 Associated Universities, Inc. Washington DC, USA.
