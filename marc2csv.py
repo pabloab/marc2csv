@@ -13,7 +13,7 @@ if len(sys.argv) > 1:
 try:
     reader = MARCReader(open(filepath))
 except IOError:
-    print >>sys.stderr, 'cannot open "%s"' % filepath
+    print('cannot open "%s"' % filepath, file=sys.stderr)
     sys.exit(1)
 
 csv_records = []
@@ -29,6 +29,7 @@ for marc_record in reader:
 
 marc_tags.sort()
 
-print ','.join(['"%s"' % tag for tag in marc_tags])
+print(','.join(['"%s"' % tag for tag in marc_tags]))
 writer = csv.DictWriter(sys.stdout, marc_tags)
 writer.writerows(csv_records)
+
