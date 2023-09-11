@@ -1,7 +1,7 @@
 # Simple marc2csv script.
 
 import csv
-import user
+# import user
 import sys
 
 from pymarc import MARCReader
@@ -11,7 +11,8 @@ if len(sys.argv) > 1:
     filepath = sys.argv[1]
 
 try:
-    reader = MARCReader(open(filepath))
+    # reader = MARCReader(open(filepath))
+    reader = MARCReader(open(filepath, 'rb'), to_unicode=True)
 except IOError:
     print('cannot open "%s"' % filepath, file=sys.stderr)
     sys.exit(1)
